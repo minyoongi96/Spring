@@ -3,10 +3,13 @@ package com.gjai.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+// Data만 있으면 아래 3개는 선언안해도 됨
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@ToString
 public class BoardVO {
 	private int idx;
 	private String title;

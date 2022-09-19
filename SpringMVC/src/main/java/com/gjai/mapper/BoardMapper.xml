@@ -5,4 +5,7 @@
 		select * from board order by indate desc;
 	</select>
 
+	<insert id="boardInsert" parameterType="com.gjai.entity.BoardVO">
+		insert into board(title, contents, writer) values(#{title}, #{contents}, #{writer})
+	</insert>
 </mapper>

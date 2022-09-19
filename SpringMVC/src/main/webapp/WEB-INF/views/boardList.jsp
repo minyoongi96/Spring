@@ -1,8 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="cpath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +29,7 @@
   				<c:forEach var="vo" items="${requestScope.list}" varStatus="status">
   					<tr>
 	  					<td>${vo.idx}</td>
-	  					<td>${vo.title}</td>
+	  					<td><a href="${cpath}/boardView.do?idx=${vo.idx}">${vo.title}</a></td>
 	  					<td>${vo.count}</td>
 	  					<td>${vo.writer}</td>
 	  					<td>${vo.indate}</td>
@@ -37,6 +37,9 @@
   				</c:forEach>
   			</table>
   		</div>
+  		<div class="panel-footer">
+  			<button class="btn btn-sm btn-primary" onclick="location.href='${cpath}/boardForm.do'">글쓰기</button>
+		</div>
   	</div>
 </div>
 </body>

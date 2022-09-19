@@ -21,10 +21,9 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<!-- 컨트롤러를 여기서 찾아라 -->
+	<!-- 컨트롤러를 여기서 찾아라(handler mapping할 pojo 위치 정보) -->
 	<context:component-scan base-package="com.gjai.board" />
+	
 	<context:component-scan base-package="com.gjai.service" />
-	
-	
 	
 </beans:beans>

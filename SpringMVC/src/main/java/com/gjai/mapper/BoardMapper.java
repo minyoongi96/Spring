@@ -6,4 +6,6 @@ import com.gjai.entity.BoardVO;
 
 public interface BoardMapper {
 	public List<BoardVO> boardList();
+	
+	public void boardInsert(BoardVO vo);
 }
