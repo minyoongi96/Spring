@@ -8,4 +8,8 @@
 	<insert id="boardInsert" parameterType="com.gjai.entity.BoardVO">
 		insert into board(title, contents, writer) values(#{title}, #{contents}, #{writer})
 	</insert>
+	
+	<update id="boardUpdate" parameterType="com.gjai.entity.BoardVO">
+		update board set title = #{title}, contents = #{contents} where idx = #{idx}
+	</update>
 </mapper>

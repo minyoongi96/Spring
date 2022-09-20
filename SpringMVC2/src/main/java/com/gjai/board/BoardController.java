@@ -21,6 +21,13 @@ public class BoardController {
 	BoardService boardService;	// servlet-context에서 스캔한 service 레이어를 Spring 컨테이너에서 찾음
 								// BoardService에서 BoardMapper를 통해 DB와 연결 (비즈니스 로직은 Service 레이어에서)
 	
+	
+	@RequestMapping("/")
+	public String home() {
+		return "home";
+	}
+	
+	
 	@RequestMapping("/boardList.do")   // HandlerMapping이 내부적으로 처리됨
 	public String boardList(Model model){
 		System.out.println("게시판 목록보기 요청");
