@@ -22,7 +22,7 @@
 			location.href = "${cpath}/boardDelete.do/" + idx;
 		}
 		function goUpdate(idx){
-			location.href = "${cpath}/boardUpdateForm.do/" + idx;
+			location.href = "${cpath}/boardUpdate.do/" + idx;
 		}
 	</script>
 </head>
@@ -49,6 +49,7 @@
 	    			<td>작성일</td>
 	    			<td>${fn:split(vo.indate, " ")[0]}</td>
 	    		</tr>
+	    		<c:if test="${mvo.memId eq vo.memId}">	    		
 	    		<tr>
 	    		<td colspan="2" align="right">
 	    			<button class="btn btn-sm btn-primary" onclick="goUpdate(${vo.idx})">수정</button>
@@ -56,6 +57,14 @@
 	    			<button class="btn btn-sm btn-info" onclick="goList()">목록</button>
 	    		</td>
 	    		</tr>
+	    		</c:if>
+	    		<c:if test="${mvo.memId ne vo.memId}">	    		
+	    		<tr>
+	    		<td colspan="2" align="right">
+	    			<button class="btn btn-sm btn-info" onclick="goList()">목록</button>
+	    		</td>
+	    		</tr>
+	    		</c:if>
 	    	</table>
 	    </div>
 	    <div class="panel-footer">Spring 특화과정 A</div>

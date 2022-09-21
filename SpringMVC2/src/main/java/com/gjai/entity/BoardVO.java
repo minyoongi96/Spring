@@ -12,6 +12,7 @@ import lombok.ToString;
 //@ToString
 public class BoardVO {
 	private int idx;
+	private String memId;
 	private String title;
 	private String contents;
 	private int count;

@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gjai.entity.BoardVO;
-import com.gjai.service.BoardService;
+import com.gjai.service.BoardServiceImpl;
 
 @RestController		// JSON Data 리턴 (REST)
 public class BoardRestController {
 	
 	@Autowired
-	BoardService boardService;
+	BoardServiceImpl boardService;
 	
 	@RequestMapping("/board")
 	public List<BoardVO> boardListAjax() {
-		List<BoardVO> list = boardService.boardList();
+		List<BoardVO> list = boardService.getList();
 		
 		return list;		// jackson-databind api를 사용해서 자동으로 Object -> JSON 변환
 	}
@@ -32,12 +32,12 @@ public class BoardRestController {
 	// GetMapping -> {type : "get"} ,   DeleteMapping -> {type : "delete"}
 	@GetMapping("/board/{idx}")
 	public BoardVO boardViewAjax(@PathVariable int idx) {
-		return boardService.boardView(idx);
+		return boardService.get(idx);
 	}
 	
 	@DeleteMapping("/board/{idx}")
 	public void boardDeleteAjax(@PathVariable int idx) {
-		boardService.boardDelete(idx);
+		boardService.remove(idx);
 	}
 
 }

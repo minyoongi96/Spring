@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -18,7 +17,29 @@
 <div class="container">
 	<h2><a href="${cpath }/boardList.do" style="text-decoration: none; color: black;">게시판</a></h2>
 	<div class="panel panel-default">
- 		<div class="panel-heading">게시판 목록</div>
+ 		<div class="panel-heading">
+ 			<c:if test="${empty mvo}">
+		    	<form class="form-inline" action="${cpath}/login.do" method="post">
+				  <div class="form-group">
+				    <label for="memId">ID:</label>
+				    <input type="text" class="form-control" name="memId">
+				  </div>
+				  <div class="form-group">
+				    <label for="memPwd">Password:</label>
+				    <input type="password" class="form-control" name="memPwd">
+				  </div>
+				  <button type="submit" class="btn btn-default">Login</button>
+				</form>
+			</c:if>
+			<c:if test="${!empty mvo}">
+				<form class="form-inline" action="${cpath}/logout.do">
+				  <div class="form-group">
+				    <label>${mvo.memName}님 방문을 환영합니다.</label>
+				  </div>
+				  <button type="submit" class="btn btn-default">Logout</button>
+				</form>
+			</c:if>
+ 		</div>
   		<div class="panel-body">
   			<table class="table table-bordered table-hover">
   				<tr class="info">
@@ -37,9 +58,11 @@
 	  					<td>${fn:split(vo.indate, " ")[0]}</td>
   					</tr>
   				</c:forEach>
-  				<tr>
-  					<td colspan="5" align="right"><button class="btn btn-sm btn-primary" onclick="location.href='${cpath}/boardForm.do'">글쓰기</button></td>
-  				</tr>
+  				<c:if test="${!empty mvo}">  					
+	  				<tr>
+	  					<td colspan="5" align="right"><button class="btn btn-sm btn-primary" onclick="location.href='${cpath}/boardWrite.do'">글쓰기</button></td>
+	  				</tr>
+  				</c:if>
   			</table>
   		</div>
   		<div class="panel-footer">Spring 특화과정 A</div>

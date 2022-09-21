@@ -3,5 +3,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.gjai.entity.BoardVO" alias="BoardVO"/>
+		<typeAlias type="com.gjai.entity.Member" alias="Member"/>
 	</typeAliases>
 </configuration>

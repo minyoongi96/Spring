@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
@@ -26,7 +25,7 @@
 	    			</tr>
 	    			<tr>
 	    				<td>작성자</td>
-	    				<td><input type="text" name="writer" class="form-control"/></td>
+	    				<td><input type="text" name="writer" class="form-control" value="${mvo.memName}" readonly="readonly"/></td>
 	    			</tr>
 	    			<tr>
 	    				<td>내용</td>
